@@ -88,7 +88,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/smitachougale-18/OpencartUIFramework'
-                    sh "mvn clean test -DsuiteXmlFile=C:/Users/Bhushan/eclipse-workspace/OpenCartPOM/src/test/resource/testrunner/testng_sanity.xml"
+                    bat "mvn clean test -DsuiteXmlFile=src/test/resource/testrunner/testng_sanity.xml"
                     
                 }
             }
