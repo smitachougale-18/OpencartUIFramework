@@ -20,7 +20,7 @@ public class AccountsPage {
 	private By search= By.name("search");
 	private By searchIcon = By.cssSelector("div#search button");
 	private By accSecHeader = By.cssSelector("div#content h2");
-	
+	private By accSecHead = By.cssSelector("div#content h2");
 	
 	public AccountsPage (WebDriver driver) {
 		this.driver=driver;
