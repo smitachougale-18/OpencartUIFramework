@@ -37,7 +37,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/smitachougale-18/OpencartUIFramework'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunner/testng_regression2.xml"
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resource/testrunner/testng_regression2.xml"
                     
                 }
             }
@@ -81,7 +81,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/naveenanimation20/June2022POMUIFramework.git'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunner/testng_sanity.xml"
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resource/testrunner/testng_sanity.xml"
                     
                 }
             }
