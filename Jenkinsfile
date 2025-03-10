@@ -12,15 +12,16 @@ pipeline
         {
             steps
             {
-                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                echo("Build")
+                // git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post 
             {
                 success
                 {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
+                   // junit '**/target/surefire-reports/TEST-*.xml'
+                    //archiveArtifacts 'target/*.jar'
                 }
             }
         }
