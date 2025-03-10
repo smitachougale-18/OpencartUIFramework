@@ -40,7 +40,7 @@ pipeline
 				 echo("Pre mvn --version")
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/smitachougale-18/OpencartUIFramework'
-                    sh 'mvn --version'
+                    bat 'mvn --version'
                    
                     //sh "mvn clean test -Dsurefire.suiteXmlFile=src/test/resource/testrunner/testng_regression2.xml"
                     
