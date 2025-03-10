@@ -39,7 +39,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/smitachougale-18/OpencartUIFramework'
-                    sh 'mvn clean test -DsuiteXmlFile=src/test/resource/testrunner/testng_regression2.xml'
+                    sh "mvn clean test -Dsurefire.suiteXmlFile=src/test/resource/testrunner/testng_regression2.xml"
                     
                 }
             }
