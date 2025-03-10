@@ -42,7 +42,7 @@ pipeline
                     git 'https://github.com/smitachougale-18/OpencartUIFramework'
                     //bat 'mvn --version'
                    
-                    bat "mvn clean test -Dsurefire.suiteXmlFile=src/test/resource/testrunner/testng_regression2.xml"
+                    bat "mvn clean test -DsuiteXmlFile=src/test/resource/testrunner/testng_regression2.xml"
                     
                 }
                  echo("Post mvn --version")
