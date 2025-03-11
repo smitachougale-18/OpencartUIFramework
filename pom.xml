@@ -151,7 +151,7 @@
 					<suiteXmlFiles>
 					<suiteXmlFile>C:\Users\Bhushan\eclipse-workspace\OpenCartPOM\src\test\resource\testrunner\testng_regression2.xml</suiteXmlFile>
 
-						<!-- <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+						<!-- <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>-->
 					</suiteXmlFiles>
 					
 					<argLine>
@@ -184,3 +184,4 @@
     
   </build>
 </project>
+
