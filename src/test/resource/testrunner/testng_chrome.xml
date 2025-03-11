@@ -22,18 +22,9 @@
 		</classes>
 	</test>
 
-    <test name="Login Page Test_firefox">
-
-		<classes>
-			<class name="com.qa.opencart.tests.LoginPageTest" />
-			<parameter name="browser" value="chrome" />
-		</classes>
-	</test>
 
 
-
-
-	<test name="Account Page Test_chrome">
+    <test name="Account Page Test_chrome">
 		
 		<classes>
 			<class name="com.qa.opencart.tests.AccountsPageTest" />
@@ -41,13 +32,6 @@
 		</classes>
 	</test>
 
-     <test name="Account Page Test_firefox">
-		
-		<classes>
-			<class name="com.qa.opencart.tests.AccountsPageTest" />
-			<parameter name="browser" value="firefox" />
-		</classes>
-	</test>
 
 
 

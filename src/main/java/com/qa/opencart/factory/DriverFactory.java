@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -14,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import com.qa.opencart.errors.AppError;
@@ -51,13 +54,41 @@ public class DriverFactory {
 		
 				
 		if(browserName.equals("chrome")) {
+			
+			if(Boolean.parseBoolean(prop.getProperty("remote"))) {
+				// remote run
+				System.out.println("Remote Run Chrome");
+				init_remoteDriver("chrome");
+			}
+			
+			else {
+			
+				// local run
+			
 		// driver = new ChromeDriver();
 			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
 		}
+		}
 		
 		else if(browserName.equals("firefox")) {
+			
+			
+			if(Boolean.parseBoolean(prop.getProperty("remote"))) {
+				// remote run
+				System.out.println("Remote Run FF");
+				init_remoteDriver("firefox");
+			}
+			
+			else {
+			
+				// local run
+			
 		// driver = new FirefoxDriver();
-			tlDriver.set(new FirefoxDriver());
+			tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
+		}
+			
+	        // driver = new FirefoxDriver();
+			//tlDriver.set(new FirefoxDriver());
 		}
 		
 		
@@ -86,6 +117,53 @@ public class DriverFactory {
 		
 	}
 	
+	/*
+	 * remote execution
+	 */
+	
+	
+	
+	private void init_remoteDriver(String browser) {
+		
+		System.out.println("Test cases ruuning on remote GRID machine .... with browser : " + browser);
+	
+		if(browser.equals("chrome")) {
+			try {
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")),optionsManager.getChromeOptions()));
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		else if(browser.equals("firefox")) {
+			try {
+				System.out.println("Running on FF");
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")),optionsManager.getFirefoxOptions()));
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		else {
+			System.out.println("please enter the right browser : " + browser);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
 	public static synchronized WebDriver getDriver() {
 		return tlDriver.get();
 		
